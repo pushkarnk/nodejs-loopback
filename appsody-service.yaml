@@ -1,0 +1,14 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: tekton-pipeline-testing
+spec:
+  runLatest:
+    configuration:
+      revisionTemplate:
+        spec:
+          container:
+            image: pushkarnk/nodejs-loopback
+            imagePullPolicy: IfNotPresent
+            ports:
+            - containerPort: 3000
